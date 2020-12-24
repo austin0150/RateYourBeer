@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body >
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <div class="createReviewContainer">
+        <h1>Write your review</h1>
+        <form method="POST" action="/review_added" >
+
+            <h3>Review Title</h3>
+            <input type="text" name="title"/>
+
+            <h3>Review Description</h3>
+            <textarea name="desc" rows="4" cols="50">
+            </textarea>
+
+            <h3>Review Image</h3>
+            <input type="file" id="chooseFileButton" name="beerImage" accept=".jpg,.png">
+            <progress id="uploader" value="0" max="100">0%</progress><br>
+            <input type="hidden" id="imgLink" name="imgLink" value="">
+
+            <h3>User Name</h3>
+            <input type="text" name="reviewer"/>
+
+            <h3>Score out of 10</h3>
+            <input type="number" min="0" max="10" name="scoreOutOfTen"/>
+
+            <h3>Beer Name</h3>
+            <input type="text" name="beerName"/>
+
+            <h3>Brewer</h3>
+            <input type="text" name="brewer"/>
+
+            <input type="submit" id="submitBtn" value="Submit Review"/>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        storageBucket: "gs://cis435-b0a01.appspot.com/"
+    };
+    firebase.initializeApp(config);
+    //-------------------------------------
+
+    var uploader = document.getElementById('uploader');
+    var fileButton = document.getElementById('chooseFileButton');
+    fileButton.addEventListener('change', function(e){
+        document.getElementById('submitBtn').style.visibility = "hidden";
+        var file = e.target.files[0];
+        var storageRef = firebase.storage().ref('beer_photos/'+file.name);
+        var task = storageRef.put(file);
+        task.on('state_changed', function progress(snapshot) {
+            var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+            uploader.value = percentage;
+
+        }, function error(err) {
+            document.getElementById('submitBtn').style.visibility = "visible";
+        },function complete() {
+            document.getElementById('submitBtn').style.visibility = "visible";
+
+            storageRef.getDownloadURL().then(function(url) {
+                document.getElementById('imgLink').value = url;
+            });
+        
+        });
+    });  
+</script>

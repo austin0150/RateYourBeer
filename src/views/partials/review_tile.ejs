@@ -1,0 +1,9 @@
+<div class="ReviewContainer">
+    <div class="card bg-light" style="width: 18rem;" id=<%= typeof review._id != 'undefined' ? review._id : 'id' %> onclick="seeBeer(this.id)">
+        <img src=<%= typeof review.imgLink != 'undefined' ? review.imgLink : 'default' %> class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><%= typeof review.title != 'undefined' ? review.title : 'title' %></h5>
+            <p class="card-text"><small class="text-muted"><%= typeof review.scoreOutOfTen != 'undefined' ? review.scoreOutOfTen : 'score' %>/10</small></p>
+        </div>
+    </div>
+</div>

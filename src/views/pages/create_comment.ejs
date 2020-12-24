@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body >
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <div>
+        <h1>Write your comment</h1>
+        <form method="POST" action="/view_beer" >
+
+            <h3>Comment</h3>
+            <textarea name="content" rows="4" cols="50">
+            </textarea>
+
+            <h3>User Name</h3>
+            <input type="text" name="reviewer"/>
+            <input type="hidden" name="reviewId" value="<%= typeof reviewId != 'undefined' ? reviewId : 'id' %>"/>
+
+            <input type="submit" id="submitBtn" value="Submit Review"/>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

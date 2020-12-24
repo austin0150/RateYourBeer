@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body >
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <div class="container">
+        <h1>Browse Beer reviews</h1>
+        <div class="card-deck">
+            <% reviews.forEach(function(review) { %>
+                <%- include('../partials/review_tile', {review:review}); %>
+            <% }); %>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
+
+<script>
+    function seeBeer(id)
+    {
+        window.location = '/view_beer?id='+id;
+    }
+</script>

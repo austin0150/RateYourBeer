@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body >
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <div class=viewBeerContainer>
+        <h1><%= typeof review.title != 'undefined' ? review.title : 'title' %></h1>
+        <img class="viewImg" src=<%= typeof review.imgLink != 'undefined' ? review.imgLink : 'default' %> alt="Review_image" >
+        <p><%= typeof review.desc != 'undefined' ? review.desc : 'description' %></p>
+        <h3>UserName: <%= typeof review.reviewer != 'undefined' ? review.reviewer : 'user' %></h3>
+        <h3>Review Date: <%= typeof review.reviewDate != 'undefined' ? review.reviewDate : 'Date' %></h3>
+        <h3>Brewer: <%= typeof review.brewer != 'undefined' ? review.brewer : 'Brewer' %></h3>
+        <h3>Beer: <%= typeof review.beerName != 'undefined' ? review.beerName : 'Beer' %></h3>
+
+        <div id="addCommBtn">
+            <form method="POST" action="/create_comment">
+                <input type="hidden" name="reviewId" value=<%= typeof review._id != 'undefined' ? review._id : 'id' %> />
+                <input type="submit" value="Add Comment" />
+            </form>
+        </div>
+    </div>
+
+    <%if (comments != undefined) { %>
+    <div class="commentContainer">
+        <% comments.forEach(function(comment) { %>
+            <%- include('../partials/comment', {comment:comment}); %>
+        <% }); %>
+    </div>
+    <% } %>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
