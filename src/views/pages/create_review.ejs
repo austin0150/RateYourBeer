@@ -10,7 +10,7 @@
 </header>
 
 <main>
-    <div class="createReviewContainer">
+    <div class="container">
         <h1>Write your review</h1>
         <form method="POST" action="/review_added" >
 
@@ -24,28 +24,28 @@
                 </textarea>
             </div>
 
-            <h3>Review Image</h3>
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" style="width: 40%;">
+                <label class="input-group-text" for="chooseFileButton">Review Photo</label>
                 <input type="file" class="form-control" id="chooseFileButton" name="beerImage" accept=".jpg,.png">
             </div>
             
             <progress id="uploader" value="0" max="100">0%</progress><br>
             <input type="hidden" id="imgLink" name="imgLink" value="">
 
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" style="width: 40%;">
                 <input type="text" name="reviewer" class="form-control" placeholder="Username"/>
             </div>
             
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" style="width: 20%;">
                 <span class="input-group-text">Out of 10</span>
                 <input type="number" min="0" max="10" name="scoreOutOfTen" class="form-control"/>
             </div>
             
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" style="width: 40%;">
                 <input type="text" name="beerName" class="form-control" placeholder="Beer Name"/>
             </div>
             
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" style="width: 40%;">
                 <input type="text" name="brewer" class="form-control" placeholder="Brewer"/>
             </div>
             
