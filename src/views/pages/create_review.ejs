@@ -14,31 +14,43 @@
         <h1>Write your review</h1>
         <form method="POST" action="/review_added" >
 
-            <h3>Review Title</h3>
-            <input type="text" name="title"/>
-
-            <h3>Review Description</h3>
-            <textarea name="desc" rows="4" cols="50">
-            </textarea>
+            <div class="input-group mb-3">
+                <input class="form-control" type="text" name="title" placeholder="Review Title"/>
+            </div>
+            
+            <div class="input-group mb-3">
+                <span class="input-group-text">Description</span>
+                <textarea name="desc" class="form-control" rows="4" cols="50">
+                </textarea>
+            </div>
 
             <h3>Review Image</h3>
-            <input type="file" id="chooseFileButton" name="beerImage" accept=".jpg,.png">
+            <div class="input-group mb-3">
+                <input type="file" class="form-control" id="chooseFileButton" name="beerImage" accept=".jpg,.png">
+            </div>
+            
             <progress id="uploader" value="0" max="100">0%</progress><br>
             <input type="hidden" id="imgLink" name="imgLink" value="">
 
-            <h3>User Name</h3>
-            <input type="text" name="reviewer"/>
+            <div class="input-group mb-3">
+                <input type="text" name="reviewer" class="form-control" placeholder="Username"/>
+            </div>
+            
+            <div class="input-group mb-3">
+                <span class="input-group-text">Out of 10</span>
+                <input type="number" min="0" max="10" name="scoreOutOfTen" class="form-control"/>
+            </div>
+            
+            <div class="input-group mb-3">
+                <input type="text" name="beerName" class="form-control" placeholder="Beer Name"/>
+            </div>
+            
+            <div class="input-group mb-3">
+                <input type="text" name="brewer" class="form-control" placeholder="Brewer"/>
+            </div>
+            
 
-            <h3>Score out of 10</h3>
-            <input type="number" min="0" max="10" name="scoreOutOfTen"/>
-
-            <h3>Beer Name</h3>
-            <input type="text" name="beerName"/>
-
-            <h3>Brewer</h3>
-            <input type="text" name="brewer"/>
-
-            <input type="submit" id="submitBtn" value="Submit Review"/>
+            <input type="submit" id="submitBtn" value="Submit Review" class="btn btn-primary"/>
         </form>
     </div>
 </main>

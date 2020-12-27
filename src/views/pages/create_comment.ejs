@@ -10,19 +10,24 @@
 </header>
 
 <main>
-    <div>
+    <div class="container">
         <h1>Write your comment</h1>
         <form method="POST" action="/view_beer" >
 
-            <h3>Comment</h3>
-            <textarea name="content" rows="4" cols="50">
-            </textarea>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Comment</span>
+                <textarea name="content" class="form-control" rows="4" cols="50">
+                </textarea>
+            </div>
 
-            <h3>User Name</h3>
-            <input type="text" name="reviewer"/>
+            <div class="input-group mb-3">
+                <input type="text" name="reviewer" class="form-control" placeholder="Username"/>
+            </div>
+            
             <input type="hidden" name="reviewId" value="<%= typeof reviewId != 'undefined' ? reviewId : 'id' %>"/>
 
-            <input type="submit" id="submitBtn" value="Submit Review"/>
+            <br>
+            <input class="btn btn-primary" style="margin-top: 25px;" type="submit" id="submitBtn" value="Submit Comment"/>
         </form>
     </div>
 </main>
