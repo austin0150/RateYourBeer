@@ -1,5 +1,7 @@
-<div class="comment">
-    <h4>User: <%= typeof comment.reviewer != 'undefined' ? comment.reviewer : 'commenter' %></h4>
-    <p><%= typeof comment.content != 'undefined' ? comment.content : 'Content' %></p>
-    <h4>Date: <%= typeof comment.commentDate != 'undefined' ? comment.commentDate : 'date' %></h4>
+<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">User: <%= typeof comment.reviewer != 'undefined' ? comment.reviewer : 'commenter' %></h5>
+        <p class="card-text"><%= typeof comment.content != 'undefined' ? comment.content : 'Content' %></p>
+    </div>
+    <div class="card-footer">Date: <%= typeof comment.commentDate != 'undefined' ? comment.commentDate : 'date' %></div>
 </div>

@@ -66,3 +66,18 @@ html, body {
 .ReviewContainer{
     margin-bottom: 15px;
 }
+
+.divider{
+    width: 90%;
+    height: 1px;
+    background-color: #adb5bd;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
